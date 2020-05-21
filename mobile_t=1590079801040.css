@@ -1,0 +1,121 @@
+.nav-icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 960px) {
+    .mobile {
+        display: block;
+    }
+
+    .body-min-margin {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    .main-content {
+        padding-top: 46px;
+    }
+
+    .main-content p {
+        font-size: 16px;
+        margin-bottom: 24px;
+        line-height: 32px;
+    }
+
+    .in .close-menu-img {
+        background-image: url('images/buttons/close.png');
+        margin: 7px 9px 0 0;
+        width: 70px;
+        height: 70px;
+    }
+
+    .hamburger-img {
+        background-image: url('images/buttons/hamburger.png');
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile-nav {
+        padding: 20px 0;
+        background: black;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        user-select: none;
+    }
+
+    div.nav-item, .mobile-nav-middle {
+        margin-left: 0;
+        margin-right: auto;
+        color: #ABABAB;
+        font-size: 20px;
+        font-family: Knockout50;
+    }
+
+    .mobile-nav-middle {
+        margin: 0px 0 0 26px;
+        width: 80%;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    .mobile-nav-right {
+        margin: 8px 24px;
+        position: absolute;
+        top: 10px;
+        right: 0;
+    }
+
+    .sidenav-close {
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        top:  0;
+        right: 0;
+        width: 100%;
+        height: 70px;
+        padding: 0;
+        background: black!important;
+    }
+
+    .footer-links {
+        margin: 20px 0;
+        padding-bottom: 80px;
+    }
+
+    .get-started {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        height: 80px;
+        background-color: black;
+        display: flex;
+        z-index: 100;
+    }
+
+    .get-started-button {
+        text-align: center;
+        letter-spacing: 1.12px;
+        font-family: Knockout50;
+        font-size: 24px;
+        width: 100%;
+        background-color: #EDF962;
+        margin: 14px 24px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .get-started-button {
+        font-size: 20px;
+    }
+}
+
+
+

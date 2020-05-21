@@ -1,0 +1,151 @@
+@media screen and (min-width: 960px) {
+.how-header, .how-content {
+    padding-top: 2rem;
+}
+}
+
+.how-content-left {
+    padding-right: 56px;
+}
+
+.how-plasma-container {
+    padding: 43px 56px 19px 56px;
+    border: 1px solid black;
+}
+
+@media screen and (min-width: 1150px) and (max-width: 1920px) {
+    .how-plasma-container {
+        padding-left: calc(43px - 20 * (1920px - 100vw) / 960);
+        padding-right: calc(43px - 20 * (1920px - 100vw) / 960);
+    }
+}
+
+
+@media screen and (max-width: 960px) {
+    .how-plasma-container {
+        padding: 24px 24px;
+    }
+
+    .main-content p.drop-title {
+        text-align: center;
+    }
+}
+
+.piechart-img {
+    background-image: url('images/piechart.png');
+    background-size: contain;
+    height: 246px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.drop-title {
+    text-align: center;
+    padding-bottom: 0;
+}
+
+.drops-img .left-right-container {
+    padding: 10px 0;
+}
+
+.main-content .drop-container {
+    margin-bottom: 10px;
+}
+
+@media screen and (min-width: 960px) {
+    .main-content p.drop-title {
+        margin-left: -20px;
+        text-align: left;
+    }
+}
+
+.main-content p.drop-title {
+    font-family: Knockout51;
+    font-size: 18px;
+    line-height: 40px;
+    margin-bottom: 0;
+    margin-left: -20px;
+}
+
+.container-left.image-drop {
+    flex: 0.5;
+}
+
+.image-drop {
+    background-size: contain;
+    height: 36px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.what-is-plasma {
+    padding-bottom: 32px;
+}
+
+.drops-img {
+    padding: 25px 0;
+}
+
+.image-drop-yellow {
+    background-image: url('images/drop-yellow.png');
+}
+
+.image-drop-white {
+    background-image: url('images/drop-white.png');
+}
+
+.image-drop-black {
+    background-image: url('images/drop-black.png');
+}
+
+@media screen and (max-width: 960px) {
+    .how-container {
+        margin: 0 50px;
+    }
+
+    .drops-img {
+        padding: 25px 0;
+        width: 210px;
+        margin-left: calc(50% - 105px);
+    }
+}
+
+.stage {
+    display: flex;
+}
+
+@media screen and (max-width: 960px) {
+    .stage {
+        flex-direction: column
+    }
+
+    .stage .stage-icon {
+        display: none;
+    }
+
+}
+
+.stage .stage-text {
+    flex-basis: calc(100% - 170px);
+    padding-left: 32px;
+}
+
+
+.how-content .drops {
+    align-items: center;
+}
+
+
+@media screen and (max-width: 1150px) {
+    .how-content {
+        flex-direction: column;
+    }
+}
+
+
+@media screen and (max-width: 960px) {
+    .stage .stage-text {
+        padding-left: 0;
+    }
+}
+

@@ -1,0 +1,31 @@
+.about-header, .about-content {
+    padding-top: 2rem;
+}
+
+.about-header-left, .about-content-left {
+    padding-right: 4rem;
+}
+
+.about-plasma-container {
+    padding: 50px;
+    border: 1px solid black;
+}
+
+.about-footer-img {
+    width: 80%;
+    margin: 0 0 0 20px;
+    background-image: url('images/about-image.png');
+    background-size: contain;
+    height: 100px;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 960px) {
+    .about-container {
+        margin: 0 50px;
+    }
+
+    .about-footer-img {
+        width: 100%;
+    }
+}

@@ -1,0 +1,194 @@
+@media screen and (min-width: 960px) {
+    .home-header-img {
+        background-image: url('images/gradient-background.png');
+        background-size: cover;
+        max-height: 712px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .home-header-img {
+        background-image: url('en-us.html');
+        background-size: cover;
+        max-height: 712px;
+    }
+}
+
+.home-header-container {
+    padding-top: 9vw;
+    padding-bottom: 9vw;
+}
+
+.home-header-left {
+    padding-right: 8vw;
+}
+
+.home-content-left {
+    padding-right: 3vw;
+}
+
+.home-header-left div {
+    font-size: 7.8vw;
+    line-height: 11vw;
+    letter-spacing: 3px;
+    color: black;
+    display: block;
+}
+
+.home-header-left span {
+    border-bottom: 30px solid #EDF962;
+}
+
+.container-right.home-header-right {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.home-header-right-content h2 {
+    border-bottom: none;
+    color: black;
+}
+
+.home-content, .home-content-container {
+    margin-top: 45px;
+}
+
+.home-content h1 {
+    font-size: 32px;
+    margin-bottom: 0;
+}
+
+.home-tab-header .call-for-action {
+    padding: 24px 32px;
+}
+
+.home-header-right-content h2 {
+    font-family: Knockout31;
+    font-size: 2vw;
+    font-weight: 100;
+    line-height: 2.5vw;
+    margin-bottom: 40px;
+}
+
+.home-header-right-content .call-for-action-button {
+    font-size: 2.7vw;
+    font-family: Knockout50;
+    line-height: 3.125vw;
+    background: #EDF962;
+    letter-spacing: 0.88px;
+    padding: 18px 20px;
+    border: none;
+    text-transform: uppercase;
+    color: black;
+}
+
+@media screen and (min-width: 1920px) {
+    .home-header-container {
+        padding: 175px 0;
+    }
+    
+    .home-header-left {
+        padding-right: 150px;
+    }
+    
+    .home-content-left {
+        padding-right: 200px;
+    }
+    
+    .home-header-left div {
+        font-size: 156px;
+        line-height: 200px;
+    }
+    
+    .home-content, .home-content-container {
+        margin-top: 45px;
+    }
+    
+    .home-tab-header .call-for-action {
+        padding: 24px 32px;
+    }
+    
+    .home-header-right-content h2 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+    
+    .home-header-right-content .call-for-action-button {
+        font-size: 52px;
+        line-height: 60px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .home-header-container {
+        padding-top: 64px;
+        padding-bottom: 0;
+    }
+
+    .home-header-left, .home-content-left {
+        padding-bottom: 32px;
+        padding-right: 0;
+    }    
+
+    .home-header-left div {
+        font-size: 64px;
+        line-height: 90px;
+        letter-spacing: 1.5px;
+        color: black;
+        display: block;
+    }
+    
+    .home-header-left span {
+        border-bottom: 13px solid #EDF962;
+    }
+
+    .container-right.home-header-right {
+        padding-bottom: 0;
+    }
+
+    .home-mobile-content {
+        background-color: white;
+        padding: 24px 32px;
+    }
+
+    .home-mobile-subtitle-container {
+        margin-bottom: 16px;
+    }
+
+    .home-mobile-subtitle {
+        font-family: Knockout50;
+        font-size: 24px;
+        text-transform: uppercase;
+        letter-spacing: 0.48px;
+        border-bottom: 4px solid #EDF962;
+        margin-bottom: 16px;
+    }
+
+    .home-header-right-content h2 {
+        font-family: Knockout31;
+        font-size: 24px;
+        font-weight: 100;
+        line-height: 28px;
+        margin-bottom: 16px;
+    }
+    
+    .home-header-right-content {
+        margin-bottom: 24px;
+    }
+
+    .home-header-right-content .call-for-action-button {
+        font-size: 24px;
+        padding: 16px;
+        letter-spacing: 0.49px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 350px) {
+
+    .home-header-right-content .call-for-action-button {
+        font-size: 20px;
+
+    }
+}

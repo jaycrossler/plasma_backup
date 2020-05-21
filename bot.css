@@ -1,0 +1,366 @@
+.panel.in {
+    right: 0;
+}
+
+.panel {
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -1000px;
+    width: 600px;
+    box-shadow: 1px 9px 9px 4px #00000029;
+    transition: right 0.5s;
+    flex-direction: column-reverse;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+.panel-header {
+    position: relative;
+    padding: 24px;
+    height: 60px;
+    background: #000000;
+}
+
+.panel-header h1 {
+    position: absolute;
+    top: 0;
+    height: 60px;
+    left: 100px;
+    right: 100px;
+    line-height: 60px;
+    color: gray;
+    margin: 0;
+    font-size: 30px;
+}
+
+.panel-header-button {
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+
+.refresh-button-img {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-family: Knockout31;
+    color: #EDF962 !important;
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+}
+
+.refresh-button-img i {
+    background-image: url('images/buttons/restart.svg');
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    width: 22px;
+    height: 22px;
+}
+
+.close-button-img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-family: Knockout51;
+    font-size: 34px;
+    line-height: 24px;
+    color: #EDF962 !important;
+}
+
+
+.close-button-img i {
+    background-image: url('images/buttons/close.png');
+    position: absolute;
+    top: 0;
+    background-size: contain;
+    left: 0;
+    width: 40px;
+    height: 40px;
+}
+
+
+#webchat[watermark="true"] [role="complementary"] ul[role="list"]::after {
+    content: "Powered By ...";
+    background: linear-gradient(rgba(248, 248, 248, 0), rgba(248, 248, 248, .63), #F8F8F8 40%);
+    bottom: 0;
+    right: 0;
+    color: #707070;
+    display: block;
+    font-size: 12px;
+    padding: 15px 10px 10px;
+    position: absolute;
+    position: sticky;
+    text-align: right;
+}
+
+#webchat[watermark="true"] .webchat__scrollToEndButton {
+    bottom: 32px;
+    left: 50%;
+    right: unset;
+    transform: translate(-50%, 0);
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: 720px;
+    grid-template-rows: 50px 810px;
+    grid-template-areas: "nav" "chat";
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+}
+
+.nav {
+    grid-area: nav;
+    margin-top: 40px
+}
+
+.ac-container select, .ac-container input[type="text"] {
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    outline: none;
+}
+
+.ac-container select, .ac-container input[type="email"] {
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    outline: none;
+}
+
+.ac-container select, .ac-container input[type="tel"] {
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    outline: none;
+}
+
+
+.ac-container select {
+    padding-left: 2px;
+}
+
+.ac-container select:focus, .ac-container input[type="text"]:focus {
+    background-color: white !important;
+    color: black;
+    outline: none;
+}
+
+.ac-container input, .ac-container select {
+    font-family: "Segoe UI", sans-serif !important;
+}
+
+.ac-container {
+    outline: none;
+}
+
+.ac-pushButton {
+    border-radius: 3px;
+
+
+}
+
+.ac-horizontal-separator {
+    /* background-color: #d2d2d2; */
+    /* height: 2px !important; */
+    /* margin: 16px; */
+}
+
+button.ac-pushButton > div {
+    color: #000000;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    width: 144px;
+    border: none;
+    font-family: Knockout51;
+    font-size: 25px;
+    font-weight: normal;
+    border-radius: 4px;
+}
+
+button.ac-pushButton {
+    border: none;
+    outline: none;
+    border: none !important;
+    padding: 0 !important;
+
+}
+
+
+
+button.ac-pushButton.style-default {
+    background-color: #ffffff !important;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+}
+button.ac-pushButton.style-default div {
+    color: #231f20 !important;
+}
+
+button.ac-pushButton.style-default:hover {
+    background-color: #f8f8f8 !important;
+}
+
+button.ac-pushButton.style-default:active div,
+button.ac-pushButton.style-default:hover > div {
+    color: #000000 !important;
+}
+
+
+button.ac-pushButton.style-positive {
+    background-color: #000000 !important;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+}
+button.ac-pushButton.style-positive div {
+    color: #EDF962 !important;
+}
+
+button.ac-pushButton.style-positive:hover {
+    background-color: #1c1c1c !important;
+}
+
+button.ac-pushButton.style-positive:active div,
+button.ac-pushButton.style-positive:hover > div {
+    color: #f0ff46 !important;
+}
+
+button.ac-pushButton:focus,
+button.ac-pushButton:active {
+    outline: 1px solid #EDF962 !important;
+}
+
+
+
+button.ac-pushButton.past {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+button.ac-pushButton.past.selected-button {
+    background-color: #000000 !important;
+    opacity: 1;
+}
+
+
+#webchat .bubble {
+    padding: 0 8px 0 8px;
+}
+
+#webchat .bubble .webchat__bubble__content {
+    border-radius: 6px !important;
+    z-index: 1;
+}
+
+div.css-y1c0xs {
+    scroll-behavior: smooth;
+}
+
+
+.webchat__row .css-1s8geyi{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.ac-actionSet {
+    flex-direction: row !important;
+}
+
+.ac-actionSet button {
+    flex: 1 1 !important;
+    margin: 0 10px;
+}
+
+
+.ac-adaptiveCard p {
+    font-size: 18px;
+    line-height: 24px;
+    font-family: Knockout31;
+}
+
+
+.ac-adaptiveCard p strong {
+    font-family: Knockout31;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+.webchat__row span {
+    display: none !important;
+}
+
+.ac-image {
+    max-width: unset;
+    width: 300px !important;
+    max-height: 150px !important;
+    position: relative;
+}
+
+
+@media screen and (max-width: 960px) {
+    .panel {
+        width: 100%;
+    }
+
+    .panel-header .panel-header-button.refresh-button-img span {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .panel-header h1 {
+        left: 40px;
+        right: 40px;
+    }
+}
+
+.ac-columnSet.question-buttons {
+
+    background-color: #DBDBDB;
+    margin: 16px -16px -16px -16px !important;
+}
+.ac-columnSet.question-buttons button {
+    margin: 16px;
+}
+
+
+.webchat__stackedLayout__content {
+    position: relative;
+    margin-top: 16px;
+}
+
+.webchat__stackedLayout__content,
+.webchat__stackedLayout__content div
+ {
+    overflow: visible !important;
+ }
+
+
+.webchat__stackedLayout__content .bubble:not(.from-user):after {
+    content: '';
+    width: 26px;
+    height: 36px;
+    background-image: url('images/drop-white.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: -25px;
+    left: 20px;
+}

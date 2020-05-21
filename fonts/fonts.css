@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "Knockout31";
+    src: url("Knockout-31JuniorMiddlewt.woff") format("woff");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Knockout50";
+    src: url("Knockout-50Welterweight.woff") format("woff");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Knockout51";
+    src: url("Knockout-51Middleweight.woff") format("woff");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "MinionPro";
+    src: url("MinionPro-Regular.woff") format("woff");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 300;
+}

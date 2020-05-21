@@ -1,17 +1,592 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+    <meta charset="utf-8">
+    <title>THE FIGHT IS IN US</title>
+    <link rel="shortcut icon" type="image/png" href="images/drop-white_t=1590079801040.svg"/>
+    <link rel="stylesheet" href="https://use.typekit.net/pnq1ezd.css">
+    <script src="dist/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat-es5.gzip.js"></script>
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <script src="dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <script src="dist/umd/popper.min.js"></script>
+    <script>
+        var negativeRE = new RegExp(/^\s*(n|no|none|nope|not|false|negative|none of them|none of these|none of the above)\s?[.]*\s*$/i);
+        var positiveRE = new RegExp(/^\s*(y|yes|yep|yeah|sure|true|right|correct|positive|affirmative|absolutely)\s?[.]*\s*$/i);
+    </script>
+    <script src="index.js"></script>
+    <link href="bot.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style_t=1590079801040.css">
+    <link rel="stylesheet" href="home_t=1590079801040.css">
+    <link rel="stylesheet" href="how-it-works_t=1590079801040.css">
+    <link rel="stylesheet" href="about_t=1590079801040.css">
+    <link rel="stylesheet" href="qna_t=1590079801040.css">
+    <link rel="stylesheet" href="mobile_t=1590079801040.css">
+    <link rel="stylesheet" href="desktop_t=1590079801040.css">
 </head>
-
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
-</body>
+<nav>
+    <div class=""><h1 class="body-min-margin desktop">THE FIGHT IS IN US</h1></div>
+    <div class="sidenav-close mobile">
+        <a tabindex="1" class="close-menu-img nav-icon mobile" onclick="toggleMenu()"></a>
+    </div>
+    <div>
+        <ul class="nav nav-tabs justify-content-end" id="myTab" role="tablist">
+            <li class="nav-item hidden" role="tab" >
+                <a class="nav-link" id="privacy-tab" data-toggle="tab" href="#privacy" role="tab"></a>
+            </li>
+            <li class="nav-item hidden" role="tab">
+                <a class="nav-link" id="terms-tab" data-toggle="tab" href="#terms" role="tab"></a>
+            </li>
+            <li class="nav-item" role="tab">
+                <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                   onclick="setTabHome()">HOME</a>
+            </li>
+            <li class="nav-item" role="tab">
+                <a class="nav-link" id="how-it-works-tab" data-toggle="tab" href="#how-it-works" role="tab"
+                   onclick="setTabHowItWorks()">HOW IT WORKS</a>
+            </li>
+            <li class="nav-item" role="tab">
+                <a class="nav-link" id="qna-tab" data-toggle="tab" href="#qna" role="tab"
+                   onclick="setTabQnA()">Q&A</a>
+            </li>
+            <li class="nav-item" role="tab">
+                <a class="nav-link" id="about-tab" data-toggle="tab" href="#about" role="tab"
+                   onclick="setTabAbout()">ABOUT</a>
+            </li>
+            <li class="nav-item tab-call-for-action-button" role="tab">
+                <div class="desktop"><a class="call-for-action-button desktop" onclick="showBot()">DONATE ></a></div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="mobile-nav mobile body-margin">
+    <div class="mobile-nav-middle">THE FIGHT IS IN US</div>
+    <div class="mobile-nav-right">
+        <a tabindex="1" class="hamburger-img nav-icon mobile" onclick="toggleMenu()"></a>
+    </div>
+</div>
+<div class="get-started mobile">
+    <button class="get-started-button" onclick="showBot()">DONATE YOUR STRENGTH</button>
+</div>
+<div class="panel">
+    <div class="panel-header">
+        <a tabindex="1" class="panel-header-button refresh-button-img" onclick="restartConversation()"><i></i> <span>restart</span></a>
+        <h1>THE FIGHT IS IN US</h1>
+        <a tabindex="1" class="panel-header-button close-button-img" onclick="hideBot()"><i></i></a>
+    </div>
+    <div id="webchat" role="main"></div>
+</div>
 
+<div class="main-content">
+    <div class="tab-content" id="tab-content">
+        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home">
+    <div class="home-header-img">
+        <div class="home-header-container body-margin">
+            <div class="body-min-margin left-right-container">
+                <div class="home-header-left container-left">
+                    <div><span>THE FIGHT</span></div>
+                    <div><span>IS IN US</span></div>
+                </div>
+                <div class="container-right home-header-right desktop">
+                    <div class="home-header-right-content">
+                        <div class="home-header-right-top">
+                            <h2>You are a survivor. Now be a superhero.</h2>
+                        </div>
+                        <div class="home-header-right-bottom">
+                            <button class="call-for-action-button" onclick="showBot()">DONATE YOUR STRENGTH ></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="home-content body-margin desktop">
+        <div class="body-min-margin">
+            <h1>THE FIGHT IS IN US</h1>
+            <div class="home-content-container left-right-container">
+                <div class="home-content-left container-left right-border-border">
+                    <p>Because your immune system fought off COVID-19, you now have antibodies in you that could help others fight it off too. Your blood plasma could be used to help a patient or used to create a potential medicine.</p>
+                </div>
+                <div class="home-content-right container-right">
+                    <p>Please donate your COVID-19 plasma today. See if you qualify and find a donor center near you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="home-mobile-content mobile">
+        <div class="home-mobile-subtitle-container">
+            <span class="home-mobile-subtitle">THE FIGHT IS IN US</span>
+        </div>
+        <p>Because your immune system fought off COVID-19, you now have antibodies in you that could help others fight it off too. Your blood plasma could be used to help a patient or used to create a potential medicine.</p>
+        <p>Please donate your COVID-19 plasma today. See if you qualify and find a donor center near you.</p>
+    </div>
+</div>
+        <div class="tab-pane fade body-margin" id="how-it-works" role="tabpanel" aria-labelledby="how-it-works">
+    <div class="how-container body-min-margin">
+        <div class="how-header left-right-container">
+            <div class="how-header-left container-left">
+                <h1>HOW IT WORKS</h1>
+            </div>
+        </div>
+        <div class="how-content left-right-container">
+            <div class="how-content-left container-left">
+                <p>Donating blood plasma is a safe process that has been used since the early 20th century to help save lives. Thousands of people safely and painlessly donate every day. Blood plasma donation is performed in a highly controlled environment by professionally trained medical staff using sterile, one-time-use, disposable materials. Facilities follow strict guidelines when collecting plasma to ensure the donor’s safety and comfort.</p>
+                <p>Here are some of the key steps to donate:</p>
+                <div class="stage">
+                    <div class="stage-icon">
+                        <img src="images/how-it-works/eligibility.svg">
+                    </div>
+                    <div class="stage-text">
+                        <h2>1. ELIGIBILITY</h2>
+                        <p>You must have had COVID-19 documented by a laboratory test (a positive diagnostic test or a positive antibody (serology) test) and meet other donor criteria. You must also be symptom free for at least 14 days prior to visiting a donor center.</p>
+                    </div>
+                </div>
+                <div class="stage">
+                    <div class="stage-icon">
+                        <img src="images/how-it-works/registration.svg">
+                    </div>
+                    <div class="stage-text">
+                        <h2>2. REGISTRATION</h2>
+                        <p>You will be asked to show proof of identification and share your contact information when you arrive at the collection center. Some donor centers may have additional registration requirements. All information will be kept strictly confidential.</p>
+                    </div>
+                </div>
+                <div class="stage">
+                    <div class="stage-icon">
+                        <img src="images/how-it-works/screening.svg">
+                    </div>
+                    <div class="stage-text">
+                        <h2>3. SCREENING</h2>
+                        <p>You must pass a pre-donation screening at every visit, including a brief exam to check your body temperature, blood pressure, and pulse rate. The goal of this screening is to make sure that the donation is safe for both you and the recipients of the final product.</p>
+                    </div>
+                </div>
+                <div class="stage">
+                    <div class="stage-icon">
+                        <img src="images/how-it-works/donationProcess.svg">
+                    </div>
+                    <div class="stage-text">
+                        <h2>4. DONATION PROCESS</h2>
+                        <p>Once your eligibility is confirmed, you will move to a donation area where you will rest on a recliner while connected to an automated machine. You will be carefully monitored by staff throughout the donation process. You will be socially distant from other donors.</p>
+                    </div>
+                </div>
+                <div class="stage">
+                    <div class="stage-icon">
+                        <img src="images/how-it-works/plasmaCollection.svg">
+                    </div>
+                    <div class="stage-text">
+                        <h2>5. PLASMA COLLECTION</h2>
+                        <p>Blood plasma is collected through an automated process that separates plasma from other blood components, then returns your red blood cells and platelets to you. This process continues until a target amount of plasma has been collected.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="how-content-right container-right">
+                <div class="how-plasma-container">
+                    <div class="what-is-plasma">
+                        <h1>WHAT IS PLASMA?</h1>
+                        <p class="small">Plasma – the liquid portion of your blood – can be easily replaced by your body. It consists mainly of water, proteins and antibodies that help your body function. If you have survived COVID-19 then your plasma includes antibodies that could help others fight the virus.</p>
+                        <div class="left-right-container drops">
+                            <div class="piechart-img container-left"></div>
+                            <div class="drops-img container-right">
+                                <div class="left-right-container">
+                                    <div class="container-left image-drop image-drop-yellow"></div>
+                                    <div class="container-right"><p class="drop-title">55% PLASMA</p></div>
+                                </div>
+                                <div class="left-right-container">
+                                    <div class="container-left image-drop image-drop-white"></div>
+                                    <div class="container-right"><p class="drop-title">1% White Blood Cells</p></div>
+                                </div>
+                                <div class="left-right-container">
+                                    <div class="container-left image-drop image-drop-black"></div>
+                                    <div class="container-right"><p class="drop-title">44% Red Blood Cells</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>HOW IS BLOOD PLASMA USED?</h2>
+                    <p class="small">Plasma from those who have recovered could be a key part of the fight against COVID-19. Once the COVID-19 plasma is donated, it can take one of two paths: be directly transfused into patients or used to make a potential medicine.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="tab-pane fade body-margin" id="about" role="tabpanel" aria-labelledby="about">
+    <div class="about-container body-min-margin">
+        <div class="about-header left-right-container">
+            <div class="about-header-left container-left">
+                <h1>ABOUT</h1>
+            </div>
+        </div>
+        <div class="about-content left-right-container">
+            <div class="about-content-left container-left right-border-border">
+                <p>“The Fight is in Us” is an initiative to maximize the individual and societal benefit of COVID-19 plasma. The campaign will focus on recruiting COVID-19 survivors to donate their plasma at licensed blood and plasma collection centers. The campaign will begin in the United States, and then expand to Europe.</p>
+                <p>This is an united effort bringing together several coalitions and organizations leading academic medical institutions (the National COVID-19 Convalescent Plasma Project and affiliates including Expanded Access to Plasma coalition led by Mayo Clinic, Michigan State University, Washington University of St. Louis); leading plasma companies (Grifols and the CoVIg-19 Plasma Alliance including those announced at its inception—Biotest, BPL, CSL Behring, LFB, Octapharma, and Takeda—and new members ADMA Biologics, BioPharma Plasma, GC Pharma, and Sanquin; and leading blood centers (including the AABB, Blood Centers of America and America’s Blood Centers); COVID-19 survivor groups including Survivor Corps.</p>
+            </div>
+            <div class="about-content-right container-right">
+                <p>“The Fight is in Us” is also supported by advisory and technology partners. The Bill & Melinda Gates Foundation and the Lasker Foundation are providing advisory support. Microsoft is providing technology support for the recruitment website and self-qualification tool. The website and tool are hosted by MITRE.</p>
+<!--                <div class="about-footer-img"></div>-->
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="tab-pane fade body-margin" id="qna" role="tabpanel" aria-labelledby="qna">
+    <div class="qna-container body-min-margin">
+        <div class="qna-header left-right-container">
+            <div class="qna-header-left container-left">
+                <h1>QUESTIONS?</h1>
+                <p>Below are the most frequently asked questions about COVID-19 plasma donation. If you do not see your question here, please contact [alias].</p>
+            </div>
+        </div>
+        <div class="qna-content left-right-container">
+            <div class="qna-content-left container-left right-border-border">
+                <div class="qna-section" >
+                    <div class="qna-section-summary">
+                        <div class="body-subtitle qna-subtitle">PLANNING FOR YOUR DONATION</div>
+                    </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container" >
+                                <summary class="question-summary question">Does donating blood plasma hurt?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">Donating blood plasma is similar to giving blood. If you can tolerate donating blood, or giving blood during medical appointments, you should be able to tolerate donating blood plasma. Highly trained professionals will take great care to minimize any possible discomfort.</p>
+                                        
+                                    
+                                        
+                                            <p class="body-text">In rare occasions, some donors might feel faint or weak. Personnel at the donor center are trained to recognize and deal with any adverse event that might occur. Eating a healthy meal and drinking plenty of water the day before and the day of your donation will help you feel well after your donation. If you have a history of feeling faint at the sight of blood, please let the donor center staff know.</p>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container" >
+                                <summary class="question-summary question">What precautions are blood and plasma collection centers taking to ensure the safety of donors?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">Thousands of people safely donate plasma every day. The collection process uses new, sterile tubing and supplies for each donation. The tubing and supplies are discarded after each collection and are never reused. Blood does not come in contact with the collection machine. Sterile techniques are used for drawing blood samples.</p>
+                                        
+                                    
+                                        
+                                            <p class="body-text">These are a few of the extra precautions that donor centers are taking:</p>
+                                        
+                                    
+                                        
+                                            <ul>
+                                                
+                                                    <li>Pre-entry screening</li>
+                                                
+                                                    <li>Following social distancing guidelines</li>
+                                                
+                                                    <li>Enhanced personal protective equipment used by staff</li>
+                                                
+                                                    <li>Enhanced cleaning and disinfecting procedures</li>
+                                                
+                                            </ul>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container" >
+                                <summary class="question-summary question">Can I donate more than once?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">Individuals who have fully recovered from COVID-19 and are willing to donate their blood plasma are encouraged to donated as many times as allowed by the donor center. Donor centers may have additional guidelines.</p>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container" >
+                                <summary class="question-summary question">I have young children. Can I bring them with me?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">To help prevent the spread of COVID-19, donors are encouraged to visit blood and plasma collection centers without accompanying guests or children. This is for the health and safety of you and your loved ones as well as other donors and staff.</p>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container" >
+                                <summary class="question-summary question">How should I prepare for my donation?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">You should be well-nourished. Please eat a light but healthy meal three hours before your donation. This means a meal that is high in protein (such as eggs, fish, or nuts), rich in iron (such as tuna, lean red meat, nuts, or beans), and low in fat (fatty or fried foods can interfere with laboratory testing). Since blood plasma is 90% water, you should also be well-hydrated, so drink plenty of water, juice, or other fluids and reduce your caffeine intake the day before your donation. Please do not drink any alcohol the night before or the day of your donation.</p>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container" >
+                                <summary class="question-summary question">What do I need to bring with me to the blood and plasma collection center?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">You must have had COVID-19 documented by a laboratory test (a positive diagnostic test or a positive antibody (serology) test) and be symptom free for at least 14 days prior to donation. You must also present one of the following:</p>
+                                        
+                                    
+                                        
+                                            <ul>
+                                                
+                                                    <li>A valid government issued identification (Example: Driver's License, Military ID, etc.)</li>
+                                                
+                                                    <li>Some plasma collection centers may have additional requirements. Call ahead to find out if you also need:</li>
+                                                
+                                                    <li>Proof of social security number (Example: Social Security Card)</li>
+                                                
+                                                    <li>If you are a resident of Mexico, please also provide a valid Border Crossing Card (BCC) or US Visa and Government issued document/identification indicating the CURP (Clave Unica de Registro de Poblacion) number</li>
+                                                
+                                                    <li>Proof of local residency (Example: Piece of mail postmarked in the past 30 days, current lease, utility bill, etc.)</li>
+                                                
+                                            </ul>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container" >
+                                <summary class="question-summary question">Do I need to tell my insurance company that I am donating?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">You do not need to inform your insurance provider. This is not a medical procedure and you will not be charged for your donation.</p>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                </div>
+            </div>
+            <div class="container-right">
+                <div class="qna-section" >
+                    <div class="qna-section-summary">
+                        <div class="body-subtitle qna-subtitle">UNDERSTANDING DONATION ELIGIBILITY</div>
+                    </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container" >
+                                <div class="bullet"></div>
+                                <summary class="question-summary question">Why do you need to know if I am at least 18 years old?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">Some centers set 18 years as the minimum age for donors. If you are under the age of 18, parental consent may be required for blood collection.</p>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container" >
+                                <div class="bullet"></div>
+                                <summary class="question-summary question">Why do you need to know that I weigh at least 110 pounds?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">The FDA requires donors to weigh at least 110 pounds.</p>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container" >
+                                <div class="bullet"></div>
+                                <summary class="question-summary question">Why do you need to know if I have ever had a confirmed positive test for HIV, or Hepatitis B or C?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">The FDA requires this information. A person who has tested positive for HIV is not eligible to donate. The FDA requires some centers to also ask if the donor has had a positive test for Hepatitis B or C. Your donated plasma will also be tested for transfusion-transmissible diseases, including HIV and Hepatitis B and C.</p>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container" >
+                                <div class="bullet"></div>
+                                <summary class="question-summary question">Where can I donate?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">There are hundreds of FDA licensed collection centers across the United States. Find the nearest collection centers, sorted by distance from you, by clicking on this link.</p>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                </div>
+                <div class="qna-section" >
+                    <div class="qna-section-summary">
+                        <div class="body-subtitle qna-subtitle">ABOUT THE DATA COLLECTED</div>
+                    </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container">
+                                <div class="bullet"></div>
+                                <summary class="question-summary question">What is Microsoft’s role in the campaign?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">Microsoft developed the donor recruitment website and self-qualification tool. The website and tool are hosted by MITRE, a not-for-profit organization that operates federally funded research and development centers.</p>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container">
+                                <div class="bullet"></div>
+                                <summary class="question-summary question">How will the data I enter be used?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">MITRE will store the answers you provide and will share this data in an aggregated form with “The Fight is in Us” campaign only to improve the COVID-19 plasma donation program. MITRE may also share aggregate findings with the public through journal publications, collaborations with other scientists, or postings to track developments in the fight against COVID-19.</p>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container">
+                                <div class="bullet"></div>
+                                <summary class="question-summary question">Is any personally identifiable information collected or shared by MITRE?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">No, no personally identifiable information is collected or shared by MITRE.</p>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container">
+                                <div class="bullet"></div>
+                                <summary class="question-summary question">Will MITRE sell my data?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">No, MITRE will not sell your data.</p>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                        <div class="question-wrapper">
+                            <details class="question-container">
+                                <div class="bullet"></div>
+                                <summary class="question-summary question">Who should I contact if I have questions?</summary>
+                                <div class="answer">
+                                    
+                                        
+                                            <p class="body-text">Please contact [alias] with any questions.</p>
+                                        
+                                    
+                                </div>
+                            </details>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="tab-pane fade body-margin" id="privacy" role="tabpanel" aria-labelledby="privacy">
+    <div class="body-min-margin">
+        <div class="left-right-container">
+            <div class="privacy-and-terms container-left-right">
+                <h1>PRIVACY POLICY</h1>
+                <p>MITRE respects the privacy of its website visitors.  This Privacy Policy explains the types of information collected from site visitors, and how MITRE uses that information. The use of the MITRE website constitutes acceptance of this policy.</p>
+                <h2>Information Collected from Web Traffic Reporting Tools</h2>
+                <p>When a visitor visits the MITRE website, the website server logs basic information about each visit. MITRE processes this information monthly via an automated software tool to identify any site performance issues, popular sections and content, and other important site characteristics. This information does not identify you personally. This information is used only as a source of anonymous statistical information. MITRE may store such information ourselves, or it may be included in databases owned and maintained by our service providers.</p>
+                <p>MITRE employs cookies for collecting portions of this information. "Cookies" are data that may be sent to your web browser and stored on your computer. Most web browsers can be configured not to accept cookies, or to notify you if a cookie is sent to you. If you wish not to have cookies set during your visit to this MITRE managed website, you can disable them in your web browser. The raw log data is retained for a minimum of ninety (90) days.</p>
+                <p>MITRE also uses a free third-party software service called Google Analytics® to capture and analyze website usage information. This service supplies us with additional non-personally identifiable information about MITRE's website users to help us create content that our users may find useful. Visitors that wish to have their non-personally identifiable information not collected by means of their visit to the MITRE website have the option to opt-out of the Google Analytics tracking service via this link: https://tools.google.com/dlpage/gaoptout/.</p>
+                <h2>Information Collected on the Inquiry Form</h2>
+                <p>When a visitor answers the non-personally identifiable questions on the Inquiry Form, the answers are processed by a software as a service Bot (“Bot”) developed by the healthcare research team at the Microsoft Corporation®.  The non-personally identifiable answers are securely stored on a Microsoft Azure ® commercial cloud tenant that is hosted and operated by MITRE.  MITRE’s use of the Microsoft Bot does not imply an endorsement and/or sponsorship of any specific company’s service, product, or enterprise.</p>
+                <h2>Information Collected from E-mail and Web Forms</h2>
+                <p>Visitors may contact MITRE by postal mail or electronically, using information found on the Contact Us page. MITRE may share the information that you provide to us via e-mail within the corporation to respond to your queries, but we do not provide information to anyone outside of the corporation unless required by law to do so. We will never share your information with a third party for any commercial purpose.</p>
+                <h2>Information Collected from Third-Party Software</h2>
+                <p>When visitors visit this MITRE managed website, visitors may be presented with links to third-party websites.  When a visitor clinks on that third-party website link the visitor may be subject to third-party software. MITRE does not collect any information that may be collected by that third-party; however, information you supply to that third-party software may be collected and/or used by that party. For information about that third-party's Privacy Policy, please see their respective website(s).</p>
+                <h2>Information Collected from Smartphone Applications</h2>
+                <p>MITRE does not collect any information that may be collected by a smartphone application; however, information you supply to that smartphone application may be collected by that party. For information about that third party's Privacy Policy, please see their respective website(s).</p>
+                <h2>Changes to Our Privacy Policy</h2>
+                <p>The MITRE website may change from time to time. As a result, at times it may be necessary for us to make changes to this Privacy Policy. Accordingly, MITRE reserves the right to update or modify this Privacy Policy at any time and from time to time without prior notice. Please review this policy periodically, and especially before you provide any information. Your continued use of the MITRE website after any changes or revisions to this Privacy Policy shall indicate your agreement with the terms of such revised Privacy Policy.</p>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="tab-pane fade body-margin" id="terms" role="tabpanel" aria-labelledby="terms">
+    <div class="body-min-margin">
+        <div class="left-right-container">
+            <div class="privacy-and-terms container-left-right">
+                <h1>TERMS OF USE</h1>
+                <p>Your use of this MITRE hosted website (“Site) is subject to certain terms and conditions.</p>
+                <p><strong>Acceptance of Terms</strong>: By accessing and using the Site, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use and the Privacy Policy referenced herein. If you do not accept these Terms of Use and the Privacy Policy, you are not authorized to use this Site. MITRE may make modifications to the foregoing at any time and such modification will be effective upon posting to the Site. Your continued use of the Site after any modifications to these Terms of Use shall indicate your agreement with such modified terms.</p>
+                <p><strong>Supplementary Terms</strong>: Some portions of the Site may have additional rules guidelines or terms posted. If there is a conflict between these Terms of Use and the rules, guidelines or terms posted for a specific area of the Site, the latter will govern regarding your use of that part of the Site.</p>
+                <p><strong>Site Content</strong>: All content on this Site including, but not limited to software, text, graphics, images, video, audio and other material (collectively referred to as the "Content"), is the exclusive property of and owned by MITRE and/or other authorized Third Party Providers.  The Content may be owned by MITRE or may be provided through an arrangement MITRE has with others, including Third Party Providers, or other users of the Site. The Content is protected by copyright under both United States and foreign laws and may not be modified or altered in any way. Unauthorized use of the Content may violate copyright, trademark, and other laws.  You have no rights in or to the Content and you may not use the Content except as specifically provided in these Terms of Use.  You may access, copy, and print the Content on this Site provided you do not modify or delete any copyright, trademark or other proprietary notice that appears on the Content. No other use is permitted without prior written consent from MITRE or the owner of the Content. If you violate any part of these Terms of Use, your permission to access and/or use the Content and the Site automatically terminates without notice.</p>
+                <p><strong>User Content</strong>: The Site may now or in the future permit the submission of Content at the direction of users of the Site ("User Content") and the hosting, sharing, and/or publishing of such User Content. You understand that whether or not such User Content is published, MITRE does not guarantee any confidentiality with respect to any submissions you make. You shall be solely responsible for User Content you submit and the consequences of our posting or publishing such User Content. MITRE reserves the right to decide whether User Content is appropriate and complies with these Terms of Use for copyright infringement and violations of intellectual property law, as well as other violations, such as, but not limited to, obscene or defamatory material, invasive of privacy rights, fraudulent, obscene, illegal, or otherwise objectionable. MITRE may remove such User Content and/or terminate your access for uploading such material in violation of these Terms of Use at any time, without prior notice and at our sole discretion.</p>
+                <p>Links to External Sites: The Site may contain links to third-party Web sites ("External Sites"). These links are provided solely as a convenience to you and not as an endorsement by MITRE of the information on such External Sites. The information on such External Sites is developed and provided by others. You should contact the External Site administrator if you have any concerns regarding such links or any information located on such External Sites. MITRE disclaims any responsibility or liability with regards to the information posted on these External Sites.</p>
+                <p><strong>Accessibility</strong>: The MITRE Corporation strives to make information accessible to everyone. In some cases, visitors using assistive technology may have difficulty reading some content. If you have a disability that causes problems for you in accessing any of our information, please contact inquiries@mitre.org.</p>
+                <p><strong>Permitted Use</strong>: The following Site activities are expressly prohibited: (i) collecting usernames and/or email addresses of other users by electronic or other means for the purpose of sending unsolicited email or other communications, (ii) any use of the Site, which in MITRE's sole judgment, degrades the reliability, speed, or operation of the Site or any underlying hardware or software thereof, (iii) you may not attempt to gain unauthorized access to any parts of the Site, (iv) you may not use any robot, spider, or other automated means to access the Site, (v) you may not access, download, use or export the Site, or the Content provided on the Site, in violation of U.S. export laws or regulations, or in violation of any other applicable laws or regulations, and (vi) any use of the Site which is unlawful or in violation of these Terms of Use.</p>
+                <p><strong>Password Protection</strong>: Access to, and use of, any password protected areas of the Site is restricted to authorized users only and you may not share your password(s), account information, or access to the Site. You are responsible for maintaining the confidentiality of your password(s) and account information, and you are responsible for all activities that occur under your password(s) or account(s) or as a result of your access to the Site. You agree to notify MITRE immediately of any unauthorized use of your password(s) or account(s).</p>
+                <p><strong>Copyright</strong>: If you are a copyright owner or an agent thereof and believe that any User Content or other Content infringes upon your copyrights, you may submit a notification pursuant to the Digital Millennium Copyright Act ("DMCA") by providing our Copyright Agent with the following information in writing (see 17 U.S.C 512(c)(3) for further detail):</p>
+                <p>(i) A physical or electronic signature of a person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed;</p>
+                <p>(ii) Identification of the copyrighted work claimed to have been infringed, or, if multiple copyrighted works at a single online site are covered by a single notification, a representative list of such works at that site;</p>
+                <p>(iii) Identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled and information reasonably sufficient to permit MITRE to locate the material;</p>
+                <p>(iv) Information reasonably sufficient to permit MITRE to contact you, such as an address, telephone number, and, if available, an electronic mail;</p>
+                <p>(v) A statement that you have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law; and</p>
+                <p>(vi) A statement that the information in the notification is accurate, and under penalty of perjury, that you are authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.</p>
+                <p>MITRE's designated Copyright Agent to receive notifications of claimed infringement and other notices relating to User Content and/or violation of these Terms of Use (e.g., violations of criminal laws) is: General Counsel, The MITRE Corporation, 7515 Colshire Drive, McLean, VA 22102-7539</p>
+                <p>Note: Only DMCA notices and notices relating to complaints in connection with User Content or violations of these Terms of Use should go to the Copyright Agent.  Any other feedback, comments, and other communications should be sent to and addressed in the Contact Us link.</p>
+                <h2>Indemnification:</h2>
+                <p>You agree to defend, indemnify, and hold MITRE and other Third Party Providers harmless from and against any claims, actions or demands, including, without limitation, reasonable legal and accounting fees, arising or resulting from your breach of these Terms of Use or your uploading of, access to, or use or misuse of the Content, User Content or the Site. MITRE shall provide notice to you of any such claim, suit, or proceeding and may assist you, at your expense, in defending any such claim, suit or proceeding. MITRE reserves the right to assume the exclusive defense and control of any matter which is subject to indemnification under this section. In such case, you agree to cooperate with any reasonable requests assisting our defense of such matter.</p>
+                <h2>Disclaimer of Warranty and Limitation of Liability:</h2>
+                <p>WE, OUR AUTHORIZED THIRD PARTY PROVIDERS, AND OUR RESPECTIVE OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, SUPPLIERS, OR LICENSORS, MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE CONTENT (INCLUDING THE USER CONTENT), INCLUDING BUT NOT LIMITED TO ITS ACCURACY, RELIABILITY, COMPLETENESS, TIMELINESS, OR RELIABILITY. NEITHER WE NOR OUR AUTHORIZED THIRD PARTY PROVIDERS SHALL BE SUBJECT TO LIABILITY FOR TRUTH, ACCURACY, OR COMPLETENESS OF ANY INFORMATION CONVEYED TO THE USER OR FOR ERRORS, MISTAKES OR OMISSIONS THEREIN OR FOR ANY DELAYS OR INTERRUPTIONS OF THE DATA OR INFORMATION STREAM FROM WHATEVER CAUSE. YOU AGREE THAT YOU USE THE SITE AND THE CONTENT (INCLUDING THE USER CONTENT) AT YOUR OWN RISK. NEITHER WE NOR OUR AUTHORIZED THIRD-PARTY PROVIDERS WARRANT THAT THE SITE WILL OPERATE ERROR FREE OR THAT THIS SITE, ITS SERVER, OR THE CONTENT (INCLUDING THE USER CONTENT) ARE FREE OF COMPUTER VIRUSES OR SIMILAR CONTAMINATION OR DESTRUCTIVE FEATURES. IF YOUR USE OF THE SITE OR THE CONTENT (INCLUDING THE USER CONTENT) RESULTS IN THE NEED FOR SERVICING OR REPLACING EQUIPMENT OR DATA, WE SHALL NOT BE RESPONSIBLE FOR THOSE COSTS. THE SITE AND CONTENT (INCLUDING THE USER CONTENT) ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT ANY WARRANTIES OF ANY KIND. WE AND OUR AUTHORIZED THIRD-PARTY PROVIDERS HEREBY DISCLAIM ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE WARRANTY OF TITLE, MERCHANTABILITY, NON INFRINGEMENT OF THIRD PARTIES' RIGHTS, AND FITNESS FOR PARTICULAR PURPOSE. IN NO EVENT SHALL WE OR OUR AUTHORIZED THIRD PARTY PROVIDERS BE LIABLE FOR ANY DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, INCIDENTAL AND CONSEQUENTIAL DAMAGES, LOST PROFITS, OR DAMAGES RESULTING FROM LOST DATA OR BUSINESS INTERRUPTION) RESULTING FROM THE USE OR INABILITY TO USE THE SITE AND THE CONTENT (INCLUDING THE USER CONTENT), WHETHER BASED ON WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE), OR ANY OTHER LEGAL THEORY, EVEN IF A WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. YOU SPECIFICALLY ACKNOWLEDGE AND AGREE THAT NEITHER MITRE NOR ITS AUTHORIZED THIRD PARTY PROVIDERS SHALL BE LIABLE FOR ANY DEFAMATORY, OFFENSIVE OR ILLEGAL CONDUCT OF ANY USER OF THE SITE. YOUR SOLE AND EXCLUSIVE REMEDY FOR ANY OF THE ABOVE CLAIMS OR ANY DISPUTE WITH MITRE IS TO DISCONTINUE YOUR USE OF THE SITE. YOU AND MITRE AGREE THAT ANY CAUSE OF ACTION ARISING OUT OF OR RELATED TO THE SITE MUST COMMENCE WITHIN ONE (1) YEAR AFTER THE CAUSE OF ACTION ACCRUES OR THE CAUSE OF ACTION IS PERMANENTLY BARRED. BECAUSE SOME JURISDICTIONS DO NOT ALLOW LIMITATIONS ON HOW LONG AN IMPLIED WARRANTY LASTS, OR THE EXCLUSION OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, ALL OR A PORTION OF THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU. IN SUCH JURISDICTIONS, OUR AND OUR AUTHORIZED THIRD-PARTY PROVIDER'S LIABILITY SHALL BE LIMITED TO THE GREATEST EXTENT PERMITTED BY LAW.</p>
+                <h2>General:</h2>
+                <p>These Terms of Use, and any rights and licenses granted hereunder, may not be transferred or assigned by you, but may be assigned by MITRE without restriction.  These Terms of Use are governed by the internal substantive laws of the Commonwealth of Virginia, without respect to its conflict of laws provisions. You expressly agree to submit to the exclusive personal jurisdiction of the state and federal courts sitting in Fairfax County in the Commonwealth of Virginia.</p>
+                <p>If any provision of these Terms of Use is found to be invalid by any court having competent jurisdiction, the invalidity of such provision shall not affect the validity of the remaining provisions of the Terms of Use, which shall remain in full force and effect. Failure by MITRE or our authorized Third Party Providers to act on or enforce any provision of the Terms of Use shall not be construed as a waiver of that provision or any other provision in these Terms of Use. No waiver shall be effective against us or our authorized Third Party Providers unless made in writing, and no such waiver shall be construed as a waiver in any other or subsequent instance.</p>
+                <p>Except as expressly agreed by us and you, these Terms of Use constitute the entire agreement between you and us with respect to the subject matter hereof, and supersede all previous or contemporaneous agreements, whether written or oral, between the parties with respect to such subject matter. If any provision these Terms of Use is unlawful, void or unenforceable, the remaining provisions of these Terms of Use shall remain valid.</p>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<footer class="footer-links-wrapper">
+    <div class="footer-links">
+        <div class="footer-item">© 2020 Microsoft and MITRE</div>
+        <div class="footer-item"><a href="#privacy" onclick="privacy()" >Privacy & cookies</a></div>
+        <div class="footer-item"><a href="#terms" onclick="terms()" >Terms of use</a></div>
+    </div>
+</footer>
+<script>setInitialTab(location.hash);</script>
+</body>
 </html>
