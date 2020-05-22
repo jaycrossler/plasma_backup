@@ -1,3 +1,18 @@
-# Vanilla JavaScript App
+# Plasma Backup
 
-This repo is used as a starter for a _very basic_ HTML web application using no front-end frameworks.
+* Copy site with sitesucker
+* Remove link to bot JS framework
+
+* Follow steps at aka.ms/swadocs
+- Clone github repo to local
+- Copy files over
+- git add .
+- git commit -m "Initial checkin"
+- git push -u origin master
+
+* python3 -m venv .venv
+* source .venv/bin/activate
+
+* create api directory
+* Azure New Project (https://docs.microsoft.com/en-us/azure/static-web-apps/add-api)
+- add storage string to local.settings.json
